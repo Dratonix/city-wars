@@ -90,7 +90,6 @@ func _set_card(value : Card):
 	cost.text = str(card.cost)
 	icon.texture=card.icon
 	scene = card.summon
-	print(card.summon)
 
 func _set_playable(value : bool) -> void:
 	playable = value
