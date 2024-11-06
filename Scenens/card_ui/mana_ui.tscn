@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://na7xjh4xmxt1"]
+
+[ext_resource type="Theme" uid="uid://ck1s4yxndb421" path="res://main_theme.tres" id="1_r5i7d"]
+[ext_resource type="Script" path="res://Scenens/card_ui/mana_ui.gd" id="2_2im2o"]
+
+[node name="ManaUI" type="Panel"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -18.0
+offset_right = 32.0
+grow_vertical = 0
+rotation = 0.0030669
+theme = ExtResource("1_r5i7d")
+script = ExtResource("2_2im2o")
+
+[node name="ManaLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1

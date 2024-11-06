@@ -1,0 +1,105 @@
+[gd_scene load_steps=12 format=3 uid="uid://dprne0ovy0j84"]
+
+[ext_resource type="Theme" uid="uid://ck1s4yxndb421" path="res://main_theme.tres" id="1_s4u8n"]
+[ext_resource type="Script" path="res://Scenens/card_ui/card_ui.gd" id="2_y5whu"]
+[ext_resource type="Script" path="res://Scenens/card_ui/card_state_machine.gd" id="3_sxrql"]
+[ext_resource type="StyleBox" uid="uid://ka45225gp55g" path="res://Scenens/card_ui/card_base_stylebox.tres" id="3_sy8st"]
+[ext_resource type="Texture2D" uid="uid://c24y6l0ivlqp7" path="res://art/tile_0108.png" id="3_vshm5"]
+[ext_resource type="Script" path="res://Scenens/card_ui/card_states/base_state.gd" id="4_v26m8"]
+[ext_resource type="Script" path="res://Scenens/card_ui/card_states/clicked_state.gd" id="5_rb4xa"]
+[ext_resource type="Script" path="res://Scenens/card_ui/card_states/dragging_state.gd" id="6_w28wl"]
+[ext_resource type="Script" path="res://Scenens/card_ui/card_states/released_state.gd" id="7_d77e3"]
+[ext_resource type="Script" path="res://Scenens/card_ui/card_states/aiming_state.gd" id="8_w2gjd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmd0v"]
+size = Vector2(25, 30)
+
+[node name="CardUI" type="Control"]
+custom_minimum_size = Vector2(25, 30)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -231.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_s4u8n")
+script = ExtResource("2_y5whu")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_sy8st")
+
+[node name="Cost" type="Label" parent="."]
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 10.0
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_vshm5")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="DropPointDetector" type="Area2D" parent="."]
+collision_mask = 6
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
+position = Vector2(12.5, 15)
+shape = SubResource("RectangleShape2D_tmd0v")
+
+[node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_sxrql")
+initial_state = NodePath("BaseState")
+
+[node name="BaseState" type="Node" parent="CardStateMachine"]
+script = ExtResource("4_v26m8")
+
+[node name="ClickedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("5_rb4xa")
+state = 1
+
+[node name="DraggingState" type="Node" parent="CardStateMachine"]
+script = ExtResource("6_w28wl")
+state = 2
+
+[node name="AimingState" type="Node" parent="CardStateMachine"]
+script = ExtResource("8_w2gjd")
+state = 3
+
+[node name="ReleasedState" type="Node" parent="CardStateMachine"]
+unique_name_in_owner = true
+script = ExtResource("7_d77e3")
+state = 4
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="DropPointDetector" to="." method="_on_drop_point_detector_area_entered"]
+[connection signal="area_entered" from="DropPointDetector" to="CardStateMachine/ReleasedState" method="_on_drop_point_detector_area_entered"]
+[connection signal="area_exited" from="DropPointDetector" to="." method="_on_drop_point_detector_area_exited"]
+[connection signal="area_exited" from="DropPointDetector" to="CardStateMachine/ReleasedState" method="_on_drop_point_detector_area_exited"]
+[connection signal="card_ended" from="CardStateMachine/ReleasedState" to="." method="_on_released_state_card_ended"]

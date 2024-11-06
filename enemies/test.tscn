@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr42jpllamg4o"]
+
+[ext_resource type="Texture2D" uid="uid://dpfqok8tuy4r7" path="res://art/tile_0084.png" id="1_4fj4t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5xo4"]
+
+[node name="Test" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4fj4t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p5xo4")
