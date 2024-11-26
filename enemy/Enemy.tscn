@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://wrk4xapjkru"]
+[gd_scene load_steps=5 format=3 uid="uid://wrk4xapjkru"]
 
 [ext_resource type="Script" path="res://enemy/enemy.gd" id="1_3hxug"]
-[ext_resource type="Texture2D" uid="uid://1u3b3hwqd8yh" path="res://art/tile_0110.png" id="1_n83ox"]
 [ext_resource type="Texture2D" uid="uid://bb3rcs5nqntir" path="res://art/arrow.png" id="2_iq4qn"]
 [ext_resource type="PackedScene" uid="uid://ntwvggakbx0" path="res://UI/stats_ui.tscn" id="3_niodu"]
 
@@ -13,10 +12,8 @@ collision_layer = 4
 script = ExtResource("1_3hxug")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_n83ox")
 
 [node name="Arrow" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(15, 0)
 rotation = -1.5708
 texture = ExtResource("2_iq4qn")
@@ -25,8 +22,13 @@ texture = ExtResource("2_iq4qn")
 shape = SubResource("RectangleShape2D_2pufp")
 
 [node name="StatsUI" parent="." instance=ExtResource("3_niodu")]
+visible = false
 offset_top = 8.0
 offset_bottom = 24.0
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-7, -8, -7, 6, 8, 7, 10, -12)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

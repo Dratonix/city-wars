@@ -31,7 +31,7 @@ func update_enemy() -> void:
 		return
 	if not is_inside_tree():
 		await ready
-	sprite_2d.texture = stats.art
+	#sprite_2d.texture = stats.art
 	arrow.position = Vector2.RIGHT * (sprite_2d.get_rect().size.x / 2 + ARROW_OFFSET)
 	update_stats()
 
@@ -41,8 +41,8 @@ func take_damage(damage : int) -> void:
 	stats.health-=damage
 	
 	if stats.health <= 0:
-		queue_free()
-
+		##queue_free()
+		pass
 
 func _on_area_entered(area: Area2D) -> void:
 	arrow.visible=true

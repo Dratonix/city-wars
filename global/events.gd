@@ -15,5 +15,11 @@ signal player_hand_drawn
 signal player_hand_discarded
 signal player_turn_ended
 
+#Summoning signals
+signal summon_character
+
 #static variables
 var pos : Vector2
+var char_type : Summon
+
+var select : bool = true

@@ -55,9 +55,11 @@ func _on_area_2d_area_entered(area : Area2D) -> void:
 		return
 	if not current_card.targets.has(area):
 		current_card.targets.append(area)
-	
+	Events.pos=area.position-position
+	print(Events.pos)
+
 func _on_area_2d_area_exited(area : Area2D) -> void:
-	Events.pos=area.position
+	Events.pos=area.position-position
 	if not current_card or not targeting:
 		return
 	current_card.targets.erase(area)

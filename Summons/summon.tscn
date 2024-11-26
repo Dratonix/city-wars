@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://7oo8spmbvmo"]
+
+[ext_resource type="Script" path="res://Summons/summon.gd" id="1_ei4dh"]
+[ext_resource type="Texture2D" uid="uid://dmnh5xxe2xne0" path="res://art/player_heart.png" id="2_miqje"]
+[ext_resource type="Script" path="res://custom_resources/summon.gd" id="3_1vlxr"]
+[ext_resource type="TileSet" uid="uid://dxmu4rcij2832" path="res://Scenens/battles/level1.tres" id="4_lmryf"]
+
+[sub_resource type="Resource" id="Resource_miefb"]
+script = ExtResource("3_1vlxr")
+movability = 15
+defense = 3
+attack = 2
+icon = ExtResource("2_miqje")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gwmdk"]
+radius = 13.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j7ft7"]
+radius = 4.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_marqw"]
+radius = 2.0
+height = 14.0
+
+[node name="Summon" type="CharacterBody2D"]
+script = ExtResource("1_ei4dh")
+summon = SubResource("Resource_miefb")
+moves = 80
+tiles = ExtResource("4_lmryf")
+
+[node name="ClickDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickDetector"]
+shape = SubResource("CircleShape2D_gwmdk")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_j7ft7")
+
+[node name="EnemyDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
+position = Vector2(0, -11)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_marqw")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="input_event" from="ClickDetector" to="." method="_on_click_detector_input_event"]
+[connection signal="area_entered" from="EnemyDetector" to="." method="_on_enemy_detector_area_entered"]
+[connection signal="input_event" from="EnemyDetector" to="." method="_on_enemy_detector_input_event"]

@@ -19,3 +19,7 @@ func _ready() -> void:
 	
 func start_battle(stats : CharacterStats) -> void:
 	player_handler.start_battle(stats)
+
+
+func _on_card_spawn_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

@@ -11,6 +11,7 @@ const HOVER_STYLEBOX := preload("res://Scenens/card_ui/card_hover_stylebox.tres"
 
 @export var card: Card : set = _set_card
 @export var char_stats : CharacterStats : set = _set_char_stats
+@export var summon_stats : Summon
 
 
 @onready var panel: Panel = $Panel
@@ -18,6 +19,7 @@ const HOVER_STYLEBOX := preload("res://Scenens/card_ui/card_hover_stylebox.tres"
 @onready var icon: TextureRect = $Icon
 @onready var card_state_machine : CardStateMachine = $CardStateMachine as CardStateMachine
 @onready var drop_point_detector : Area2D = $DropPointDetector
+@onready var coll : CollisionShape2D = $DropPointDetector/CollisionShape2D
 @onready var targets: Array[Node] = []
 @onready var released := get_node("%ReleasedState")
 @onready var original_index := self.get_index()

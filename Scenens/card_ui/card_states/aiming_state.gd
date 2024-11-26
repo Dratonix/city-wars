@@ -1,6 +1,6 @@
 extends CardState
 
-const MOUSE_Y_SNAPBACK_THRESHOLD := 138
+const MOUSE_Y_SNAPBACK_THRESHOLD := 138*3
 
 
 func enter() -> void:
@@ -26,4 +26,5 @@ func on_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		transition_requested.emit(self, CardState.State.RELEASED)
 	elif(mouse_motion and mouse_at_bottom) or event.is_action_pressed("right_mouse"):
+		card_ui.panel.set("theme_override_styles/panel", card_ui.BASE_STYLEBOX)
 		transition_requested.emit(self, CardState.State.BASE)

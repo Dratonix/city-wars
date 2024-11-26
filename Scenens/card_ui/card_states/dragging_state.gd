@@ -1,6 +1,6 @@
 extends CardState
 
-const DRAG_MINIMUM_THRESHOLD := .05
+const DRAG_MINIMUM_THRESHOLD := .5
 
 var minium_drag_time_elapsed := false
 
@@ -33,6 +33,7 @@ func on_input(event: InputEvent) -> void:
 		transition_requested.emit(self, CardState.State.AIMING)
 		return
 	if cancel:
+		card_ui.panel.set("theme_override_styles/panel", card_ui.BASE_STYLEBOX)
 		transition_requested.emit(self, CardState.State.BASE)
 	elif confirm:
 		get_viewport().set_input_as_handled()

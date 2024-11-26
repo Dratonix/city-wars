@@ -3,11 +3,10 @@ extends CardState
 var played : bool
 var a : Vector2
 
-signal is_played(position : Vector2, scene : PackedScene )
 func enter() -> void:
 	
 
-	
+	print("sigma")
 	played = false
 	
 	
@@ -15,16 +14,21 @@ func enter() -> void:
 	if not card_ui.targets.is_empty():
 		Events.tooltip_hide_requested.emit()
 		played = true
+		print("played ")
+		Events.char_type = card_ui.summon_stats
+		Events.emit_signal("summon_character")
 		card_ui.play()
 
 func on_input(_event : InputEvent) -> void:
 
 	if played:
-		emit_signal("is_played",Events.pos)
+		print("played ")
+
 		#get_tree().add_child(scene_instance)
 		### Create code for putting a summon at the position of the grid
 		return
 	
+	card_ui.panel.set("theme_override_styles/panel", card_ui.BASE_STYLEBOX)
 	transition_requested.emit(self, CardState.State.BASE)
 
 

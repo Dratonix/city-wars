@@ -5,9 +5,10 @@ extends Node
 @export var summon : Area2D
 @export var scene : Area2D
 
-
 var current_state: CardState
 var states := {}
+var summon_stats : Summon
+
 
 func init(card: CardUI) -> void:
 	for child in get_children():
@@ -23,6 +24,7 @@ func init(card: CardUI) -> void:
 func on_input(event : InputEvent) -> void:
 	if current_state:
 		current_state.on_input(event)
+	
 
 func on_gui_input(event : InputEvent) -> void:
 	if current_state:

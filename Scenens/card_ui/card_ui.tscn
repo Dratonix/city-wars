@@ -1,15 +1,24 @@
-[gd_scene load_steps=12 format=3 uid="uid://dprne0ovy0j84"]
+[gd_scene load_steps=15 format=3 uid="uid://dprne0ovy0j84"]
 
 [ext_resource type="Theme" uid="uid://ck1s4yxndb421" path="res://main_theme.tres" id="1_s4u8n"]
 [ext_resource type="Script" path="res://Scenens/card_ui/card_ui.gd" id="2_y5whu"]
 [ext_resource type="Script" path="res://Scenens/card_ui/card_state_machine.gd" id="3_sxrql"]
 [ext_resource type="StyleBox" uid="uid://ka45225gp55g" path="res://Scenens/card_ui/card_base_stylebox.tres" id="3_sy8st"]
 [ext_resource type="Texture2D" uid="uid://c24y6l0ivlqp7" path="res://art/tile_0108.png" id="3_vshm5"]
+[ext_resource type="Texture2D" uid="uid://dmnh5xxe2xne0" path="res://art/player_heart.png" id="3_wpg7l"]
+[ext_resource type="Script" path="res://custom_resources/summon.gd" id="4_qwook"]
 [ext_resource type="Script" path="res://Scenens/card_ui/card_states/base_state.gd" id="4_v26m8"]
 [ext_resource type="Script" path="res://Scenens/card_ui/card_states/clicked_state.gd" id="5_rb4xa"]
 [ext_resource type="Script" path="res://Scenens/card_ui/card_states/dragging_state.gd" id="6_w28wl"]
 [ext_resource type="Script" path="res://Scenens/card_ui/card_states/released_state.gd" id="7_d77e3"]
 [ext_resource type="Script" path="res://Scenens/card_ui/card_states/aiming_state.gd" id="8_w2gjd"]
+
+[sub_resource type="Resource" id="Resource_g3eev"]
+script = ExtResource("4_qwook")
+movability = 5
+defense = 4
+attack = 3
+icon = ExtResource("3_wpg7l")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmd0v"]
 size = Vector2(25, 30)
@@ -26,6 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_s4u8n")
 script = ExtResource("2_y5whu")
+summon_stats = SubResource("Resource_g3eev")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
