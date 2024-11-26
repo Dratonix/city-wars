@@ -23,3 +23,14 @@ var pos : Vector2
 var char_type : Summon
 
 var select : bool = true
+
+#Turn swapping
+enum Turns
+{
+	player_red,
+	player_blue,
+	player_green,
+	player_yellow
+}
+var current_turn = Turns.player_red
+signal turn_changed

@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 @onready var collision1 = $cardSpawn/CollisionShape2D
 

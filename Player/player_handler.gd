@@ -8,9 +8,13 @@ const HAND_DISCARD_INTERVAL := .25
 
 var character : CharacterStats
 
+var index : int = 0
+
+
+func _physics_process(delta: float) -> void:
+	print(Events.current_turn)
 func _ready() -> void:
 	Events.card_played.connect(_on_card_played)
-
 func start_battle(char_stats : CharacterStats) -> void:
 	character = char_stats
 	character.draw_pile = character.deck.duplicate(true)
@@ -26,6 +30,23 @@ func start_turn() -> void:
 func end_turn() -> void:
 	hand.disable_hand()
 	discard_cards()
+	match Events.current_turn:
+		Events.Turns.player_red:
+			Events.current_turn=Events.Turns.player_blue
+			Events.turn_changed.emit()
+			return
+		Events.Turns.player_blue:
+			Events.current_turn=Events.Turns.player_green
+			Events.turn_changed.emit()
+			return
+		Events.Turns.player_green:
+			Events.current_turn=Events.Turns.player_yellow
+			Events.turn_changed.emit()
+			return
+		Events.Turns.player_yellow:
+			Events.current_turn=Events.Turns.player_red
+			Events.turn_changed.emit()
+			return
 
 func draw_card() -> void:
 	reshuffle_deck_from_discard()
