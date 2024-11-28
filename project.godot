@@ -58,6 +58,14 @@ mouse_left_click={
 2d_physics/layer_1="Card Target Selector"
 2d_physics/layer_2="Card Drop Area"
 2d_physics/layer_3="enemies"
+2d_physics/layer_4="Red Player"
+2d_physics/layer_5="Blue Player"
+2d_physics/layer_6="Green Player"
+2d_physics/layer_7="Yellow Player"
+2d_physics/layer_8="Red Drop Area"
+2d_physics/layer_9="Blue Drop Area"
+2d_physics/layer_10="Green Drop Area"
+2d_physics/layer_11="Yellow Drop Area"
 
 [rendering]
 

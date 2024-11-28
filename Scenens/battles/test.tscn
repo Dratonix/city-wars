@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://bbgcbetlmtahk" path="res://characters/warrior/cards/warrior_blk.tres" id="5_a8ve2"]
 [ext_resource type="PackedScene" uid="uid://2mrb5uhnus1u" path="res://Scenens/card_target_selector/card_target_selector.tscn" id="6_e716j"]
 [ext_resource type="Texture2D" uid="uid://c1gvqgvgs3xc8" path="res://art/tile_0131.png" id="7_86dqv"]
-[ext_resource type="PackedScene" uid="uid://fbs5u5joyarj" path="res://enemy/enemy.tscn" id="7_nxwvj"]
+[ext_resource type="PackedScene" uid="uid://fbs5u5joyarj" path="res://spawn_platform/red_spawn_platform.tscn" id="7_nxwvj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_suxjr"]
 size = Vector2(256, 101)

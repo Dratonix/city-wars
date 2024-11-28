@@ -1,27 +1,27 @@
 [gd_scene load_steps=5 format=3 uid="uid://wrk4xapjkru"]
 
-[ext_resource type="Script" path="res://enemy/enemy.gd" id="1_3hxug"]
-[ext_resource type="Texture2D" uid="uid://bb3rcs5nqntir" path="res://art/arrow.png" id="2_iq4qn"]
-[ext_resource type="PackedScene" uid="uid://ntwvggakbx0" path="res://UI/stats_ui.tscn" id="3_niodu"]
+[ext_resource type="Script" path="res://enemy/enemy.gd" id="1_mvr8n"]
+[ext_resource type="Texture2D" uid="uid://bb3rcs5nqntir" path="res://art/arrow.png" id="2_yk0tt"]
+[ext_resource type="PackedScene" uid="uid://ntwvggakbx0" path="res://UI/stats_ui.tscn" id="3_7woit"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2pufp"]
 
 [node name="Enemy" type="Area2D" groups=["enemies"]]
 position = Vector2(0, 1)
 collision_layer = 4
-script = ExtResource("1_3hxug")
+script = ExtResource("1_mvr8n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Arrow" type="Sprite2D" parent="."]
 position = Vector2(15, 0)
 rotation = -1.5708
-texture = ExtResource("2_iq4qn")
+texture = ExtResource("2_yk0tt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2pufp")
 
-[node name="StatsUI" parent="." instance=ExtResource("3_niodu")]
+[node name="StatsUI" parent="." instance=ExtResource("3_7woit")]
 visible = false
 offset_top = 8.0
 offset_bottom = 24.0

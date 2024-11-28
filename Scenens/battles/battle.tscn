@@ -100,34 +100,6 @@ tracks/1/keys = {
 "values": [1.5708, 2.35619, 3.14159]
 }
 
-[sub_resource type="Animation" id="Animation_r7yv7"]
-resource_name = "turn_change_to_yellow"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TileMapLayer:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [3.14159, 3.92699, 4.71239]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SummonHandler2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [3.14159, 3.92699, 4.71239]
-}
-
 [sub_resource type="Animation" id="Animation_08ncq"]
 resource_name = "turn_change_to_red"
 length = 0.3
@@ -154,6 +126,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [4.71239, 5.49779, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_r7yv7"]
+resource_name = "turn_change_to_yellow"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TileMapLayer:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.14159, 3.92699, 4.71239]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SummonHandler2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.14159, 3.92699, 4.71239]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kux1g"]
@@ -194,7 +194,7 @@ hand = NodePath("../BattleUI/Hand")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-1, 0)
-tile_map_data = PackedByteArray("AAD9////AQABAAEAAAD+////AQABAAEAAAD/////AQABAAEAAAAAAP//AQABAAEAAAABAP//AQABAAEAAAACAP//AQABAAEAAAACAAAAAQABAAEAAAABAAAAAQABAAEAAAAAAAAAAQABAAEAAAD//wAAAQABAAEAAAD+/wAAAQABAAEAAAD9//7/AQABAAEAAAD9//3/AQABAAEAAAD+//3/AQABAAEAAAACAP7/AQABAAEAAAABAP7/AQABAAEAAAAAAP7/AQABAAEAAAD///7/AQABAAEAAAD+//7/AQABAAEAAAD//wEAAAAAAAAAAQAAAAEAAAAAAAAAAQD9/wEAAQACAAEAAAD+/wEAAAAAAAAAAQD8/wEAAQACAAEAAAD8/wAAAQACAAEAAAD8////AQACAAEAAAD8//7/AQACAAEAAAD8//3/AQACAAEAAAD8//z/AQACAAEAAAD9//z/AQACAAEAAAD+//z/AQACAAEAAAD///z/AQACAAEAAAAAAPz/AQACAAEAAAABAPz/AQACAAEAAAACAPz/AQACAAEAAAADAPz/AQACAAEAAAADAP3/AQACAAEAAAADAP7/AQACAAEAAAADAP//AQACAAEAAAADAAAAAQACAAEAAAADAAEAAQACAAEAAAACAAEAAQACAAEAAAABAAEAAAAAAAAAAQD9/wAAAQABAAEAAAABAP3/AQABAAEAAAAAAP3/AQABAAEAAAD///3/AQABAAEAAAACAP3/AQABAAEAAAA=")
+tile_map_data = PackedByteArray("AAD9////AQABAAEAAAD+////AQABAAEAAAD/////AQABAAEAAAAAAP//AQABAAEAAAABAP//AQABAAEAAAACAP//AQABAAEAAAACAAAAAQABAAEAAAABAAAAAQABAAEAAAAAAAAAAQABAAEAAAD//wAAAQABAAEAAAD+/wAAAQABAAEAAAD9//7/AQABAAEAAAD9//3/AQABAAEAAAD+//3/AQABAAEAAAACAP7/AQABAAEAAAABAP7/AQABAAEAAAAAAP7/AQABAAEAAAD///7/AQABAAEAAAD+//7/AQABAAEAAAD//wEAAAAAAAAAAQAAAAEAAAAAAAAAAQD9/wEAAQACAAEAAAD+/wEAAAAAAAAAAQD8/wEAAQACAAEAAAD8/wAAAQACAAEAAAD8////AAAAAAAABAD8//7/AAAAAAAABAD8//3/AQACAAEAAAD8//z/AQACAAEAAAD9//z/AQACAAEAAAD+//z/AAAAAAAAAwD///z/AAAAAAAAAwAAAPz/AAAAAAAAAwABAPz/AAAAAAAAAwACAPz/AQACAAEAAAADAPz/AQACAAEAAAADAP3/AQACAAEAAAADAP7/AAAAAAAAAgADAP//AAAAAAAAAgADAAAAAQACAAEAAAADAAEAAQACAAEAAAACAAEAAQACAAEAAAABAAEAAAAAAAAAAQD9/wAAAQABAAEAAAABAP3/AQABAAEAAAAAAP3/AQABAAEAAAD///3/AQABAAEAAAACAP3/AQABAAEAAAA=")
 tile_set = ExtResource("13_1fqog")
 
 [node name="SummonHandler2" type="Node2D" parent="."]

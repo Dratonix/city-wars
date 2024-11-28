@@ -17,7 +17,20 @@ func _process(delta: float) -> void:
 		return
 	area_2d.position = get_local_mouse_position()
 	card_arc.points = _get_points()
-	
+	match Events.current_turn:
+		Events.Turns.player_red:
+			area_2d.collision_mask = 128
+			return
+		Events.Turns.player_blue:
+			area_2d.collision_mask = 256
+			return
+		Events.Turns.player_green:
+			area_2d.collision_mask = 512
+			return
+		Events.Turns.player_yellow:
+			area_2d.collision_mask = 1024
+			return
+
 func _get_points() -> Array:
 	var points := []
 	var start := current_card.global_position

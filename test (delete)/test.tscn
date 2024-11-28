@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://Player/player_handler.gd" id="10_wg5tp"]
 [ext_resource type="Script" path="res://test (delete)/summon_handler.gd" id="11_02ptc"]
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="11_o6d2p"]
-[ext_resource type="PackedScene" uid="uid://fbs5u5joyarj" path="res://enemy/enemy.tscn" id="13_xn6rp"]
+[ext_resource type="PackedScene" uid="uid://fbs5u5joyarj" path="res://spawn_platform/red_spawn_platform.tscn" id="13_xn6rp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ve2y6"]
 size = Vector2(385, 144)

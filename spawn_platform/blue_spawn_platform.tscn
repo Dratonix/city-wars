@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ytf4skdu1x8n"]
+
+[ext_resource type="Script" path="res://spawn_platform/spawn_platform.gd" id="1_nm0bv"]
+[ext_resource type="Texture2D" uid="uid://1u3b3hwqd8yh" path="res://art/tile_0110.png" id="2_w7rfc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pufp"]
+
+[node name="BlueSpawnPlatform" type="Area2D"]
+position = Vector2(-3, 2)
+collision_layer = 256
+script = ExtResource("1_nm0bv")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_w7rfc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2pufp")
+debug_color = Color(0.310893, 0.543736, 0.831218, 0.42)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
