@@ -5,11 +5,13 @@ extends CharacterBody2D
 @export var moves : int = 15
 @export var attack : int
 @export var defense : int
+@export var team : int
 
 @export var tiles : TileSet
 
 @onready var sprite : Sprite2D = $Sprite
 @onready var click_area : CollisionShape2D = $ClickDetector/CollisionShape2D
+@onready var enemy_detector : Area2D = $EnemyDetector
 
 ## Movement and control variables
 var input_dir
@@ -18,12 +20,36 @@ var moving = false
 var click = false  # Track whether the character has been clicked
 var can_move = false  # Only allow movement if clicked
 
+
+func _ready() -> void:
+##	position=Vector2.ZERO
+	team = Events.current_turn
+	Events.connect("turn_changed", _reset)
+	match Events.current_turn:
+		Events.Turns.player_red:
+			add_to_group("red")
+			enemy_detector.add_to_group("red")
+			return
+		Events.Turns.player_blue:
+			add_to_group("blue")
+			enemy_detector.add_to_group("blue")
+			return
+		Events.Turns.player_green:
+			add_to_group("green")
+			enemy_detector.add_to_group("green")
+			return
+		Events.Turns.player_yellow:
+			add_to_group("yellow")
+			enemy_detector.add_to_group("yellow")
+			return
+		
 func _process(delta: float) -> void:
 	# Only allow click_area to be interactable if it's the selected character
-	if Events.select:
+	if Events.select or Events.current_turn == team:
 		click_area.disabled = false
 	else:
 		click_area.disabled = true
+		
 
 	# Handle right mouse click
 	if Input.is_action_just_pressed("right_mouse"):
@@ -31,7 +57,7 @@ func _process(delta: float) -> void:
 		Events.select = true
 		click = false  # Reset click status
 		can_move = false  # Disable movement until click is detected
-
+	
 func _physics_process(delta: float) -> void:
 	if not can_move:
 		return  # Don't process movement if the character can't move
@@ -54,7 +80,7 @@ func _physics_process(delta: float) -> void:
 		moves -= 1
 
 func move(input_dir: Vector2) -> void:
-	if moving == false:
+	if moving == false and Events.current_turn == team:
 		moving = true
 		var tween = create_tween()
 		tween.tween_property(self, "position", position + input_dir * tile_size, 0.25)
@@ -81,3 +107,10 @@ func _on_click_detector_input_event(viewport: Node, event: InputEvent, shape_idx
 			Events.select = false  # Deselect this character for other actions
 			can_move = true  # Allow movement after being clicked
 			print("Character clicked")
+
+func _reset() -> void:
+	moves = summon.movability
+
+func _on_enemy_detector_area_entered(area: Area2D) -> void:
+	if area.get_groups() != enemy_detector.get_groups():
+		print(attack > area.get_parent().attack)

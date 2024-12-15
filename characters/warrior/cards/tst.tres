@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b00r6c8f8fyd6"]
+
+[ext_resource type="Script" path="res://characters/warrior/cards/warrior_axe_attack.gd" id="1_vryu8"]
+
+[resource]
+script = ExtResource("1_vryu8")
+id = "5"
+type = 0
+target = 0
+cost = 1
+tooltip_text = ""

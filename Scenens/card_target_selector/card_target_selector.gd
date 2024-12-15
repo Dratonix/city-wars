@@ -17,19 +17,6 @@ func _process(delta: float) -> void:
 		return
 	area_2d.position = get_local_mouse_position()
 	card_arc.points = _get_points()
-	match Events.current_turn:
-		Events.Turns.player_red:
-			area_2d.collision_mask = 128
-			return
-		Events.Turns.player_blue:
-			area_2d.collision_mask = 256
-			return
-		Events.Turns.player_green:
-			area_2d.collision_mask = 512
-			return
-		Events.Turns.player_yellow:
-			area_2d.collision_mask = 1024
-			return
 
 func _get_points() -> Array:
 	var points := []
@@ -64,13 +51,31 @@ func _on_card_aim_ended(_card : CardUI) -> void:
 	current_card=null
 	
 func _on_area_2d_area_entered(area : Area2D) -> void:
+	var run = false
 	if not current_card or not targeting:
 		return
-	if not current_card.targets.has(area):
-		current_card.targets.append(area)
-	Events.pos=area.position-position
-	print(Events.pos)
+	if "Spawn" in area.name or "Area" in area.name :
+		print(area.is_in_group('r_tile') and Events.current_turn == Events.Turns.player_red)
+		print(area.get_groups())
+		if  area.is_in_group('r_tile') and Events.current_turn==Events.Turns.player_red:
+					Events.pos=area.position-position
+					print('play')
+					run=true
+		elif Events.current_turn == Events.Turns.player_blue and area.is_in_group( 'b_tile'):
+			Events.pos=area.position-position
+			run=true
+			
+		elif Events.current_turn == Events.Turns.player_green and area.is_in_group('g_tile'):
+			Events.pos=area.position-position
+			run=true
+		elif Events.current_turn == Events.Turns.player_yellow and area.is_in_group( 'y_tile'):
+			Events.pos=area.position-position
+			run=true
+		if run and not current_card.targets.has(area):
+			
+			current_card.targets.append(area)
 
+		
 func _on_area_2d_area_exited(area : Area2D) -> void:
 	Events.pos=area.position-position
 	if not current_card or not targeting:

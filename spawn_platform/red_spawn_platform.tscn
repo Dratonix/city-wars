@@ -5,13 +5,13 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2pufp"]
 
-[node name="SpawnPlatform" type="Area2D"]
+[node name="SpawnPlatform" type="Area2D" groups=["r_tile"]]
 position = Vector2(-3, 2)
 collision_layer = 128
 script = ExtResource("1_3fwn5")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["r_tile"]]
 visible = false
 texture = ExtResource("1_veg7f")
 

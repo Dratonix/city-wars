@@ -11,8 +11,7 @@ var character : CharacterStats
 var index : int = 0
 
 
-func _physics_process(delta: float) -> void:
-	print(Events.current_turn)
+
 func _ready() -> void:
 	Events.card_played.connect(_on_card_played)
 func start_battle(char_stats : CharacterStats) -> void:

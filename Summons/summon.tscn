@@ -10,6 +10,7 @@ script = ExtResource("3_1vlxr")
 movability = 15
 defense = 3
 attack = 2
+team = 0
 icon = ExtResource("2_miqje")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gwmdk"]
@@ -24,12 +25,14 @@ radius = 2.0
 height = 14.0
 
 [node name="Summon" type="CharacterBody2D"]
+collision_layer = 16
 script = ExtResource("1_ei4dh")
 summon = SubResource("Resource_miefb")
 moves = 80
 tiles = ExtResource("4_lmryf")
 
 [node name="ClickDetector" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickDetector"]
 shape = SubResource("CircleShape2D_gwmdk")
@@ -41,11 +44,25 @@ position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_j7ft7")
 
 [node name="EnemyDetector" type="Area2D" parent="."]
+collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
 position = Vector2(0, -11)
 rotation = 1.5708
+shape = SubResource("CapsuleShape2D_marqw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="EnemyDetector"]
+position = Vector2(0, 13)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_marqw")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="EnemyDetector"]
+position = Vector2(-12, 0)
+shape = SubResource("CapsuleShape2D_marqw")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="EnemyDetector"]
+position = Vector2(8, 0)
 shape = SubResource("CapsuleShape2D_marqw")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

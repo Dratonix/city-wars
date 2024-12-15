@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cl6pstbyft5io"]
+[gd_scene load_steps=23 format=4 uid="uid://cl6pstbyft5io"]
 
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_urj52"]
 [ext_resource type="Script" path="res://Scenens/battles/battle.gd" id="1_wpmda"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://dqnj3xev5o0a2" path="res://Scenens/UI/tool_tip.tscn" id="12_ptuhj"]
 [ext_resource type="TileSet" uid="uid://dxmu4rcij2832" path="res://Scenens/battles/level1.tres" id="13_1fqog"]
 [ext_resource type="Theme" uid="uid://ck1s4yxndb421" path="res://main_theme.tres" id="13_k4chj"]
+[ext_resource type="PackedScene" uid="uid://ytf4skdu1x8n" path="res://spawn_platform/blue_spawn_platform.tscn" id="14_ranlx"]
+[ext_resource type="PackedScene" uid="uid://fbs5u5joyarj" path="res://spawn_platform/red_spawn_platform.tscn" id="15_crvmx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21jdi"]
 size = Vector2(479, 180)
@@ -21,7 +23,7 @@ size = Vector2(479, 180)
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("TileMapLayer:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -34,10 +36,46 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SummonHandler2:rotation")
+tracks/1/path = NodePath("SummonHandler2/RedPlayerSummons:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SummonHandler2/BluePlayerSummons:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SummonHandler2/GreenPlayerSummons:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SummonHandler2/YellowPlayerSummons:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -62,7 +100,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SummonHandler2:rotation")
+tracks/1/path = NodePath("SummonHandler2/RedPlayerSummons:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -70,6 +108,42 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.785398, 1.5708]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SummonHandler2/BluePlayerSummons:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SummonHandler2/GreenPlayerSummons:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.785398, 1.5708]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("SummonHandler2/YellowPlayerSummons:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_rapty"]
@@ -82,18 +156,6 @@ tracks/0/path = NodePath("TileMapLayer:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [1.5708, 2.35619, 3.14159]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SummonHandler2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.133333, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -115,18 +177,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [4.71239, 5.49779, 6.28319]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SummonHandler2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [4.71239, 5.49779, 6.28319]
-}
 
 [sub_resource type="Animation" id="Animation_r7yv7"]
 resource_name = "turn_change_to_yellow"
@@ -138,18 +188,6 @@ tracks/0/path = NodePath("TileMapLayer:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [3.14159, 3.92699, 4.71239]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SummonHandler2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.133333, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -194,12 +232,20 @@ hand = NodePath("../BattleUI/Hand")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-1, 0)
-tile_map_data = PackedByteArray("AAD9////AQABAAEAAAD+////AQABAAEAAAD/////AQABAAEAAAAAAP//AQABAAEAAAABAP//AQABAAEAAAACAP//AQABAAEAAAACAAAAAQABAAEAAAABAAAAAQABAAEAAAAAAAAAAQABAAEAAAD//wAAAQABAAEAAAD+/wAAAQABAAEAAAD9//7/AQABAAEAAAD9//3/AQABAAEAAAD+//3/AQABAAEAAAACAP7/AQABAAEAAAABAP7/AQABAAEAAAAAAP7/AQABAAEAAAD///7/AQABAAEAAAD+//7/AQABAAEAAAD//wEAAAAAAAAAAQAAAAEAAAAAAAAAAQD9/wEAAQACAAEAAAD+/wEAAAAAAAAAAQD8/wEAAQACAAEAAAD8/wAAAQACAAEAAAD8////AAAAAAAABAD8//7/AAAAAAAABAD8//3/AQACAAEAAAD8//z/AQACAAEAAAD9//z/AQACAAEAAAD+//z/AAAAAAAAAwD///z/AAAAAAAAAwAAAPz/AAAAAAAAAwABAPz/AAAAAAAAAwACAPz/AQACAAEAAAADAPz/AQACAAEAAAADAP3/AQACAAEAAAADAP7/AAAAAAAAAgADAP//AAAAAAAAAgADAAAAAQACAAEAAAADAAEAAQACAAEAAAACAAEAAQACAAEAAAABAAEAAAAAAAAAAQD9/wAAAQABAAEAAAABAP3/AQABAAEAAAAAAP3/AQABAAEAAAD///3/AQABAAEAAAACAP3/AQABAAEAAAA=")
+tile_map_data = PackedByteArray("AAD9////AQABAAEAAAD+////AQABAAEAAAD/////AQABAAEAAAAAAP//AQABAAEAAAABAP//AQABAAEAAAACAP//AQABAAEAAAACAAAAAQABAAEAAAABAAAAAQABAAEAAAAAAAAAAQABAAEAAAD//wAAAQABAAEAAAD+/wAAAQABAAEAAAD9//7/AQABAAEAAAD9//3/AQABAAEAAAD+//3/AQABAAEAAAACAP7/AQABAAEAAAABAP7/AQABAAEAAAAAAP7/AQABAAEAAAD///7/AQABAAEAAAD+//7/AQABAAEAAAD//wEAAAAAAAAABQAAAAEAAAAAAAAABQD9/wEAAQACAAEAAAD+/wEAAAAAAAAABQD8/wEAAQACAAEAAAD8/wAAAAAAAAAABAD8////AAAAAAAABAD8//7/AAAAAAAABAD8//3/AQACAAEAAAD8//z/AQACAAEAAAD9//z/AQACAAEAAAD+//z/AAAAAAAAAwD///z/AAAAAAAAAwAAAPz/AAAAAAAAAwABAPz/AAAAAAAAAwACAPz/AQACAAEAAAADAPz/AQACAAEAAAADAP3/AAAAAAAAAgADAP7/AAAAAAAAAgADAP//AAAAAAAAAgADAAAAAQACAAEAAAADAAEAAQACAAEAAAACAAEAAQACAAEAAAABAAEAAAAAAAAABQD9/wAAAQABAAEAAAABAP3/AQABAAEAAAAAAP3/AQABAAEAAAD///3/AQABAAEAAAACAP3/AQABAAEAAAA=")
 tile_set = ExtResource("13_1fqog")
 
 [node name="SummonHandler2" type="Node2D" parent="."]
 position = Vector2(240, 135)
 script = ExtResource("9_y5d5t")
+
+[node name="RedPlayerSummons" type="Node2D" parent="SummonHandler2"]
+
+[node name="BluePlayerSummons" type="Node2D" parent="SummonHandler2"]
+
+[node name="GreenPlayerSummons" type="Node2D" parent="SummonHandler2"]
+
+[node name="YellowPlayerSummons" type="Node2D" parent="SummonHandler2"]
 
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 script = ExtResource("6_xduox")
@@ -249,3 +295,66 @@ metadata/_edit_use_anchors_ = true
 libraries = {
 "": SubResource("AnimationLibrary_kux1g")
 }
+
+[node name="BlueSpawnPlatform" parent="." instance=ExtResource("14_ranlx")]
+position = Vector2(136, -6)
+
+[node name="SpawnPlatform" parent="." instance=ExtResource("15_crvmx")]
+position = Vector2(138, 70)
+
+[connection signal="area_entered" from="TileMapLayer/SpawnPlatform" to="TileMapLayer/SpawnPlatform" method="_on_area_entered"]
+[connection signal="area_exited" from="TileMapLayer/SpawnPlatform" to="TileMapLayer/SpawnPlatform" method="_on_area_exited"]
+[connection signal="body_entered" from="TileMapLayer/SpawnPlatform" to="TileMapLayer/SpawnPlatform" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMapLayer/SpawnPlatform" to="TileMapLayer/SpawnPlatform" method="_on_body_exited"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@25410" to="TileMapLayer/@Area2D@25410" method="_on_area_entered"]
+[connection signal="area_exited" from="TileMapLayer/@Area2D@25410" to="TileMapLayer/@Area2D@25410" method="_on_area_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@25410" to="TileMapLayer/@Area2D@25410" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@25410" to="TileMapLayer/@Area2D@25410" method="_on_body_exited"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@25411" to="TileMapLayer/@Area2D@25411" method="_on_area_entered"]
+[connection signal="area_exited" from="TileMapLayer/@Area2D@25411" to="TileMapLayer/@Area2D@25411" method="_on_area_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@25411" to="TileMapLayer/@Area2D@25411" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@25411" to="TileMapLayer/@Area2D@25411" method="_on_body_exited"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@25412" to="TileMapLayer/@Area2D@25412" method="_on_area_entered"]
+[connection signal="area_exited" from="TileMapLayer/@Area2D@25412" to="TileMapLayer/@Area2D@25412" method="_on_area_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@25412" to="TileMapLayer/@Area2D@25412" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@25412" to="TileMapLayer/@Area2D@25412" method="_on_body_exited"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@25413" to="TileMapLayer/@Area2D@25413" method="_on_area_entered"]
+[connection signal="area_exited" from="TileMapLayer/@Area2D@25413" to="TileMapLayer/@Area2D@25413" method="_on_area_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@25413" to="TileMapLayer/@Area2D@25413" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@25413" to="TileMapLayer/@Area2D@25413" method="_on_body_exited"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@25414" to="TileMapLayer/@Area2D@25414" method="_on_area_entered"]
+[connection signal="area_exited" from="TileMapLayer/@Area2D@25414" to="TileMapLayer/@Area2D@25414" method="_on_area_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@25414" to="TileMapLayer/@Area2D@25414" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@25414" to="TileMapLayer/@Area2D@25414" method="_on_body_exited"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@25415" to="TileMapLayer/@Area2D@25415" method="_on_area_entered"]
+[connection signal="area_exited" from="TileMapLayer/@Area2D@25415" to="TileMapLayer/@Area2D@25415" method="_on_area_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@25415" to="TileMapLayer/@Area2D@25415" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@25415" to="TileMapLayer/@Area2D@25415" method="_on_body_exited"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@25416" to="TileMapLayer/@Area2D@25416" method="_on_area_entered"]
+[connection signal="area_exited" from="TileMapLayer/@Area2D@25416" to="TileMapLayer/@Area2D@25416" method="_on_area_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@25416" to="TileMapLayer/@Area2D@25416" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@25416" to="TileMapLayer/@Area2D@25416" method="_on_body_exited"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@25417" to="TileMapLayer/@Area2D@25417" method="_on_area_entered"]
+[connection signal="area_exited" from="TileMapLayer/@Area2D@25417" to="TileMapLayer/@Area2D@25417" method="_on_area_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@25417" to="TileMapLayer/@Area2D@25417" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@25417" to="TileMapLayer/@Area2D@25417" method="_on_body_exited"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@25418" to="TileMapLayer/@Area2D@25418" method="_on_area_entered"]
+[connection signal="area_exited" from="TileMapLayer/@Area2D@25418" to="TileMapLayer/@Area2D@25418" method="_on_area_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@25418" to="TileMapLayer/@Area2D@25418" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@25418" to="TileMapLayer/@Area2D@25418" method="_on_body_exited"]
+[connection signal="area_entered" from="TileMapLayer/BlueSpawnPlatform" to="TileMapLayer/BlueSpawnPlatform" method="_on_area_entered"]
+[connection signal="area_exited" from="TileMapLayer/BlueSpawnPlatform" to="TileMapLayer/BlueSpawnPlatform" method="_on_area_exited"]
+[connection signal="body_entered" from="TileMapLayer/BlueSpawnPlatform" to="TileMapLayer/BlueSpawnPlatform" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMapLayer/BlueSpawnPlatform" to="TileMapLayer/BlueSpawnPlatform" method="_on_body_exited"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@25419" to="TileMapLayer/@Area2D@25419" method="_on_area_entered"]
+[connection signal="area_exited" from="TileMapLayer/@Area2D@25419" to="TileMapLayer/@Area2D@25419" method="_on_area_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@25419" to="TileMapLayer/@Area2D@25419" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@25419" to="TileMapLayer/@Area2D@25419" method="_on_body_exited"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@25420" to="TileMapLayer/@Area2D@25420" method="_on_area_entered"]
+[connection signal="area_exited" from="TileMapLayer/@Area2D@25420" to="TileMapLayer/@Area2D@25420" method="_on_area_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@25420" to="TileMapLayer/@Area2D@25420" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@25420" to="TileMapLayer/@Area2D@25420" method="_on_body_exited"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@25421" to="TileMapLayer/@Area2D@25421" method="_on_area_entered"]
+[connection signal="area_exited" from="TileMapLayer/@Area2D@25421" to="TileMapLayer/@Area2D@25421" method="_on_area_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@25421" to="TileMapLayer/@Area2D@25421" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@25421" to="TileMapLayer/@Area2D@25421" method="_on_body_exited"]

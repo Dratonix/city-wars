@@ -1,16 +1,16 @@
 [gd_resource type="TileSet" load_steps=8 format=3 uid="uid://dxmu4rcij2832"]
 
-[ext_resource type="PackedScene" uid="uid://fbs5u5joyarj" path="res://spawn_platform/red_spawn_platform.tscn" id="1_ravm6"]
 [ext_resource type="Texture2D" uid="uid://dwywyegwqdj4f" path="res://art/chess.png" id="2_3vbo8"]
 [ext_resource type="PackedScene" uid="uid://ytf4skdu1x8n" path="res://spawn_platform/blue_spawn_platform.tscn" id="2_4y73m"]
 [ext_resource type="PackedScene" uid="uid://cvjpxyh0xnjs1" path="res://spawn_platform/green_spawn_platform.tscn" id="3_m787g"]
 [ext_resource type="PackedScene" uid="uid://mfa54k67u2r3" path="res://spawn_platform/yellow_spawn_platform.tscn" id="4_2v5ij"]
+[ext_resource type="PackedScene" uid="uid://fbs5u5joyarj" path="res://spawn_platform/red_spawn_platform.tscn" id="4_dc3qy"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_f63sa"]
-scenes/1/scene = ExtResource("1_ravm6")
 scenes/2/scene = ExtResource("2_4y73m")
 scenes/3/scene = ExtResource("3_m787g")
 scenes/4/scene = ExtResource("4_2v5ij")
+scenes/5/scene = ExtResource("4_dc3qy")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cnfds"]
 texture = ExtResource("2_3vbo8")

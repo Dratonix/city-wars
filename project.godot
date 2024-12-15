@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Card Game tutorial"
+config/name="City Wars"
 run/main_scene="res://Scenens/battles/battle.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.png"
@@ -34,6 +34,10 @@ project/assembly_name="Card Game tutorial"
 [global_group]
 
 player=""
+y_tile=""
+r_tile=""
+g_tile=""
+b_tile=""
 
 [input]
 
@@ -72,3 +76,4 @@ mouse_left_click={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

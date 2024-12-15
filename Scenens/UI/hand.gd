@@ -16,6 +16,7 @@ func add_card(card : Card) -> void:
 	new_card_ui.card = card
 	new_card_ui.parent = self 
 	new_card_ui.char_stats = char_stats
+	print(name)
 func _on_card_ui_reparent_requested(child : CardUI) -> void:
 	child.disabled = true
 	child.reparent(self)

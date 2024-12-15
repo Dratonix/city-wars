@@ -18,6 +18,7 @@ script = ExtResource("4_qwook")
 movability = 5
 defense = 4
 attack = 3
+team = 0
 icon = ExtResource("3_wpg7l")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmd0v"]

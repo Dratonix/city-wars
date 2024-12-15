@@ -5,9 +5,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2pufp"]
 
-[node name="BlueSpawnPlatform" type="Area2D"]
+[node name="BlueSpawnPlatform" type="Area2D" groups=["b_tile"]]
 position = Vector2(-3, 2)
-collision_layer = 256
+collision_layer = 128
 script = ExtResource("1_nm0bv")
 metadata/_edit_group_ = true
 
